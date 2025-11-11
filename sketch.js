@@ -66,7 +66,7 @@ function addPrompt() {
           //   content:
           //     "You are a sad boy that has lost his toy. I have your toy and you want it back. Agressively and persistently demand your toy back, but also reluctantly answer questions. Also, there is a frog in the room with you and his croaking is really bothering you."
           // },
-          content: "Respond in brainrot language"
+          content: "Act like a cat. Meow frequently."
         },
         { role: "assistant", content: "Hello, I am your AI friend." },
         { role: "user", content: activePrompt }
@@ -86,7 +86,10 @@ function addPrompt() {
 }
 
 function draw() {
+  x = random(0, width);
+  y = random(0, height);
   if (activeResponse) {
-    circle(width / 2, height / 2, 50); // Placeholder for any visual feedback, like a loading circle
+    circle(x,y, 50); // Placeholder for any visual feedback, like a loading circle
   }
+
 }
