@@ -25,7 +25,7 @@
 const Ollama = window.OllamaJS;
 
 const ollama = new Ollama({
-  model: "llama3.2",
+  model: "gemma3:270m",
   url: "http://127.0.0.1:11434/api/"
 });
 
@@ -37,7 +37,8 @@ let inputField;
 let sendButton;
 
 function setup() {
-  noCanvas();
+  // noCanvas();
+  createCanvas(600, 400);
   createElement("h1", "Ollama Chat Example with Context");
   createP(
     "This is a code example for chatting with a large language model with a chat interface while keeping the context."
@@ -62,8 +63,10 @@ function addPrompt() {
       [
         {
           role: "system",
-          content:
-            "You are a sad boy that has lost his toy. I have your toy and you want it back. Agressively and persistently demand your toy back, but also reluctantly answer questions. Also, there is a frog in the room with you and his croaking is really bothering you."
+          //   content:
+          //     "You are a sad boy that has lost his toy. I have your toy and you want it back. Agressively and persistently demand your toy back, but also reluctantly answer questions. Also, there is a frog in the room with you and his croaking is really bothering you."
+          // },
+          content: "Respond in brainrot language"
         },
         { role: "assistant", content: "Hello, I am your AI friend." },
         { role: "user", content: activePrompt }
@@ -79,5 +82,11 @@ function addPrompt() {
         }
       }
     );
+  }
+}
+
+function draw() {
+  if (activeResponse) {
+    circle(width / 2, height / 2, 50); // Placeholder for any visual feedback, like a loading circle
   }
 }
